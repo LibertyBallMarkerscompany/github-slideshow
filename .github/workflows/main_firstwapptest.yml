@@ -23,6 +23,17 @@ jobs:
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
+      - name: Publish NuGet packages
+  # You may pin to the exact commit or the version.
+  # uses: dansiegel/publish-nuget@d6dfbff478dcf0bb623fecad3b2a1ee1c4fd25cb
+  uses: dansiegel/publish-nuget@v1.01
+  with:
+    # NuGet package filename or search pattern
+    filename: # default is **/*.nupkg
+    # API key to access the feed
+    apiKey: 
+    # NuGet feed URL
+    feedUrl: # optional, default is https://api.nuget.org/v3/index.json
 
     - name: Restore NuGet packages
       run: nuget restore
